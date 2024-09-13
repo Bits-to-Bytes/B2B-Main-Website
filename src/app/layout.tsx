@@ -2,6 +2,8 @@ import siteConfig from '@/config/siteConfig';
 import { Poppins } from 'next/font/google';
 import { ReactNode } from 'react';
 import './globals.css';
+import Footer from '@/components/landing/footer/Footer';
+import Appbar from '@/components/Appbar';
 
 export const metadata = siteConfig;
 
@@ -19,7 +21,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${globalFont.className}`}>{children}</body>
+      <body className={`${globalFont.className} select-none`}>
+        <Appbar />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }
