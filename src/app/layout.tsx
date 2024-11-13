@@ -2,6 +2,7 @@ import siteConfig from '@/config/siteConfig';
 import { Poppins } from 'next/font/google';
 import { ReactNode } from 'react';
 import './globals.css';
+import Providers from './Providers';
 
 export const metadata = siteConfig;
 
@@ -19,7 +20,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${globalFont.className}`}>{children}</body>
+      <body className={`${globalFont.className}`}>
+        <Providers>{children}</Providers>
+      </body>
     </html>
   );
 }
