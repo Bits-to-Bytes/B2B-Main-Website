@@ -2,10 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'CreamCake';
+  src: url('/fonts/CreamCake.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/Poppins.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'CalSans';
+  src: url('/fonts/CalSans.otf') format('opentype');
+}
+
 * {
   scroll-behavior: smooth;
 }
-
 *::-webkit-scrollbar {
   width: 0.5rem;
 }
@@ -17,6 +31,10 @@
 }
 *::-webkit-scrollbar-thumb:hover {
   background: #666;
+}
+
+.text-stroke-dark {
+  -webkit-text-stroke: 2px #000515;
 }
 
 @layer base {

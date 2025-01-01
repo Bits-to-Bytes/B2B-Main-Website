@@ -22,8 +22,8 @@ const poppins = localFont({ src: '../../../../public/fonts/Poppins.ttf' });
 
 export default function Footer(): React.ReactNode {
   const socialIcons = [
-    { src: instagram, href: 'https://www.instagram.com/bits.to.bytes/' },
-    { src: linkedin, href: 'https://linkedin.com/company/bitstobytes-gecbvn' },
+    { src: instagram, href: 'https://www.instagram.com/bitstobytes.gecbvn/' },
+    { src: linkedin, href: 'https://www.linkedin.com/company/bitsto-bytes/' },
     { src: github, href: 'https://github.com/Bits-to-Bytes' },
     { src: twitter, href: 'https://twitter.com/BitstobytesGec' },
     { src: youtube, href: 'https://www.youtube.com/@BitstoBytes' },
