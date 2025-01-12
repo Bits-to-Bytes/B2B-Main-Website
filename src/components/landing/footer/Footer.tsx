@@ -31,7 +31,7 @@ export default function Footer(): React.ReactNode {
   ];
 
   return (
-    <footer className="bottom-0 bg-background pt-[5rem] w-full flex flex-col items-center text-primary">
+    <footer className="bottom-0 bg-background w-full flex flex-col items-center text-primary">
       <div className="px-4 md:px-8 lg:px-16 w-full flex flex-col lg:flex-row gap-8 lg:gap-16">
         <div className="lg:px-12 flex flex-col gap-4">
           <h1
@@ -131,7 +131,7 @@ export default function Footer(): React.ReactNode {
         <span
           className={`${poppins.className} text-sm md:text-md lg:text-lg mt-4`}
         >
-          Copyright © 2024 All rights reserved | bitstobytes
+          Copyright © 2025 All rights reserved | bitstobytes
         </span>
       </div>
     </footer>

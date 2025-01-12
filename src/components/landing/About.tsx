@@ -12,8 +12,21 @@ export default function About() {
     function handleScroll() {
       if (aboutRef.current) {
         const rect = aboutRef.current.getBoundingClientRect();
-        gsap.to('.aboutHeading', { y: rect.top * 0.2, duration: 0.3 });
-        gsap.to('.aboutContent', { y: rect.top * 0.1, duration: 0.3 });
+
+        const isMobile = window.innerWidth < 768;
+        const factorHeading = isMobile ? 0.05 : 0.15;
+        const factorContent = isMobile ? 0.05 : 0.1;
+        const factorButton = isMobile ? 0.025 : 0.05;
+
+        gsap.to('.aboutHeading', {
+          y: rect.top * factorHeading,
+          duration: 0.3,
+        });
+        gsap.to('.aboutContent', {
+          y: rect.top * factorContent,
+          duration: 0.3,
+        });
+        gsap.to('.aboutButton', { y: rect.top * factorButton, duration: 0.3 });
       }
     }
 
@@ -31,7 +44,7 @@ export default function About() {
     >
       <div className="overflow-hidden p-1">
         <h1
-          className="aboutHeading text-transparent text-[4rem] lg:text-[10rem] font-calSans
+          className="p-1 aboutHeading text-transparent text-[4.5rem] lg:text-[10rem] font-calSans
         uppercase leading-[4.5rem] lg:leading-[10.5rem] tracking-[0.5rem] lg:tracking-[1rem] text-stroke-dark lg:flex lg:gap-[2rem]"
         >
           about <span className="hidden lg:block">us</span>
@@ -40,7 +53,7 @@ export default function About() {
 
       <div className="overflow-hidden flex w-[100%] items-center justify-center">
         <div className="aboutContent flex flex-col lg:flex-row w-[85%] gap-[2rem] items-center justify-between overflow-hidden">
-          <div className="text-center w-full lg:w-[50%] px-[2rem]">
+          <div className="text-center w-full lg:w-[50%] lg:px-[2rem]">
             <h2 className="text-[2rem] font-calSans">What is bitstobytes?</h2>
             <p className="text-[1rem] lg:text-[1.7rem] font-poppins">
               Being a programming club, we assure pretty much everything you ask

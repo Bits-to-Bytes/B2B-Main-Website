@@ -36,6 +36,9 @@
 .text-stroke-dark {
   -webkit-text-stroke: 2px #000515;
 }
+.text-stroke-light {
+  -webkit-text-stroke: 2px #f2f2f2;
+}
 
 @layer base {
   :root {

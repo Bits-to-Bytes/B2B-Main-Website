@@ -21,7 +21,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <div className="h-screen flex w-full flex-col items-center justify-center text-primary font-calSans select-none">
+    <div className="h-screen flex w-full flex-col items-center justify-center text-primary font-calSans">
       <div className="overflow-hidden">
         <h1 className="mainHeading text-[#42B6E3] text-[4rem] lg:text-[8rem]">
           bitstobytes
