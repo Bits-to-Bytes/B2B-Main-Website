@@ -1,81 +1,11 @@
 'use client';
 
+import { teamMembers } from '@/data/team';
 import { motion, useAnimationControls } from 'framer-motion';
 import gsap from 'gsap';
 import Image from 'next/image';
 import { useEffect, useRef } from 'react';
 import Doodle from '../../../public/assets/doodle.png';
-
-// HomePage Member Photos
-import monil from '../../../public/members/monil.png';
-import priyansh from '../../../public/members/priyansh.png';
-import parmita from '../../../public/members/parmita.png';
-import rudra from '../../../public/members/rudra.png';
-import maulik from '../../../public/members/maulik.png';
-import gunj from '../../../public/members/gunj.png';
-import mandip from '../../../public/members/mandip.png';
-import shivani from '../../../public/members/shivani.png';
-import sujal from '../../../public/members/sujal.png';
-import tejasvi from '../../../public/members/tejasvi.png';
-import diya from '../../../public/members/diya.png';
-
-const teamMembers = [
-  {
-    name: 'Monil Prajapati',
-    role: 'President',
-    image: monil,
-  },
-  {
-    name: 'Gunj Patel',
-    role: 'Vice President',
-    image: gunj,
-  },
-  {
-    name: 'Diya Doshi',
-    role: 'PR Lead',
-    image: diya,
-  },
-  {
-    name: 'Parmita Upadhyay',
-    role: 'Executive Member',
-    image: parmita,
-  },
-  {
-    name: 'Priyansh Patel',
-    role: 'Executive Member',
-    image: priyansh,
-  },
-  {
-    name: 'Maulik Bambhaniya',
-    role: 'PR Manager',
-    image: maulik,
-  },
-  {
-    name: 'Mandip Kamaliya',
-    role: 'Executive Member',
-    image: mandip,
-  },
-  {
-    name: 'Rudra Parmar',
-    role: 'Associate Member',
-    image: rudra,
-  },
-  {
-    name: 'Shivani Sodha',
-    role: 'Associate Member',
-    image: shivani,
-  },
-  {
-    name: 'Sujal Parmar',
-    role: 'Executive Member',
-    image: sujal,
-  },
-  {
-    name: 'Tejasvi Maniya',
-    role: 'Associate Member',
-    image: tejasvi,
-  },
-];
 
 export default function Team() {
   const pageRef = useRef<HTMLDivElement>(null);
@@ -160,43 +90,49 @@ export default function Team() {
               });
             }}
           >
-            {teamMembers.map((member, index) => (
-              <motion.div
-                key={index}
-                className="w-[200px] sm:w-[250px] md:w-[300px] lg:w-[350px] h-[300px] sm:h-[350px] md:h-[400px] lg:h-[450px] flex-shrink-0 transform transition-all duration-300 relative grayscale hover:grayscale-0 bg-gray-200"
-                whileHover={{ cursor: 'pointer' }}
-              >
-                <Image
-                  src={member.image}
-                  alt={member.name}
-                  className="absolute inset-0 w-full h-full object-cover"
-                  layout="fill"
-                />
-                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 w-[90%] bg-white py-2 px-4 flex flex-col items-center">
-                  <h3 className="text-lg font-bold">{member.name}</h3>
-                  <p className="text-sm text-gray-600">{member.role}</p>
-                </div>
-              </motion.div>
-            ))}
+            {teamMembers.map((member, index) => {
+              if (index >= 10 || member.image === null) return null;
+              return (
+                <motion.div
+                  key={index}
+                  className="w-[200px] sm:w-[250px] md:w-[300px] lg:w-[350px] h-[300px] sm:h-[350px] md:h-[400px] lg:h-[450px] flex-shrink-0 transform transition-all duration-300 relative grayscale hover:grayscale-0 bg-gray-200"
+                  whileHover={{ cursor: 'pointer' }}
+                >
+                  <Image
+                    src={member.image}
+                    alt={member.name}
+                    className="absolute inset-0 w-full h-full object-cover"
+                    layout="fill"
+                  />
+                  <div className="absolute bottom-4 left-1/2 -translate-x-1/2 w-[90%] bg-white py-2 px-4 flex flex-col items-center">
+                    <h3 className="text-lg font-bold">{member.name}</h3>
+                    <p className="text-sm text-gray-600">{member.role}</p>
+                  </div>
+                </motion.div>
+              );
+            })}
 
-            {teamMembers.map((member, index) => (
-              <motion.div
-                key={`dup-${index}`}
-                className="w-[200px] sm:w-[250px] md:w-[300px] lg:w-[350px] h-[300px] sm:h-[350px] md:h-[400px] lg:h-[450px] flex-shrink-0 transform transition-all duration-300 relative grayscale hover:grayscale-0 bg-gray-200"
-                whileHover={{ cursor: 'pointer' }}
-              >
-                <Image
-                  src={member.image}
-                  alt={member.name}
-                  className="absolute inset-0 w-full h-full object-cover"
-                  layout="fill"
-                />
-                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 w-[90%] bg-white py-2 px-4 flex flex-col items-center">
-                  <h3 className="text-lg font-bold">{member.name}</h3>
-                  <p className="text-sm text-gray-600">{member.role}</p>
-                </div>
-              </motion.div>
-            ))}
+            {teamMembers.map((member, index) => {
+              if (index >= 10 || member.image === null) return null;
+              return (
+                <motion.div
+                  key={index}
+                  className="w-[200px] sm:w-[250px] md:w-[300px] lg:w-[350px] h-[300px] sm:h-[350px] md:h-[400px] lg:h-[450px] flex-shrink-0 transform transition-all duration-300 relative grayscale hover:grayscale-0 bg-gray-200"
+                  whileHover={{ cursor: 'pointer' }}
+                >
+                  <Image
+                    src={member.image}
+                    alt={member.name}
+                    className="absolute inset-0 w-full h-full object-cover"
+                    layout="fill"
+                  />
+                  <div className="absolute bottom-4 left-1/2 -translate-x-1/2 w-[90%] bg-white py-2 px-4 flex flex-col items-center">
+                    <h3 className="text-lg font-bold">{member.name}</h3>
+                    <p className="text-sm text-gray-600">{member.role}</p>
+                  </div>
+                </motion.div>
+              );
+            })}
           </motion.div>
         </div>
       </div>

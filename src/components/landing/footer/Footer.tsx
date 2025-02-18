@@ -31,7 +31,7 @@ export default function Footer(): React.ReactNode {
   ];
 
   return (
-    <footer className="bottom-0 bg-background w-full flex flex-col items-center text-primary">
+    <footer className="bottom-0 bg-background w-full flex flex-col items-center text-primary py-12">
       <div className="px-4 md:px-8 lg:px-16 w-full flex flex-col lg:flex-row gap-8 lg:gap-16">
         <div className="lg:px-12 flex flex-col gap-4">
           <h1
@@ -96,7 +96,7 @@ export default function Footer(): React.ReactNode {
         </div>
       </div>
 
-      <div className="px-4 md:px-8 lg:px-16 py-8 w-full flex flex-col items-center">
+      <div className="px-4 md:px-8 lg:px-16 mt-12 md:m-4 w-full flex flex-col items-center">
         <h1
           className={`text-secondary text-lg md:text-2xl lg:text-3xl ${calSans.className}`}
         >
@@ -119,14 +119,6 @@ export default function Footer(): React.ReactNode {
               Priyansh Patel
             </span>
           </Link>
-          {/* <Link href={`https://www.linkedin.com/in/kenil-kanani-5ab300219/`} target='_blank' className="flex flex-col items-center gap-4">
-            <Image src={profile} alt='developer' className='w-24 h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 rounded-full' />
-            <span className={`text-md md:text-lg lg:text-xl text-secondary ${calSans.className}`}>Kenil Kanani</span>
-          </Link>
-          <Link href={`https://www.linkedin.com/in/vivek-jadav-python-developer/`} target='_blank' className="flex flex-col items-center gap-4">
-            <Image src={profile} alt='developer' className='w-24 h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 rounded-full' />
-            <span className={`text-md md:text-lg lg:text-xl text-secondary ${calSans.className}`}>Vivek Jadav</span>
-          </Link> */}
         </div>
         <span
           className={`${poppins.className} text-sm md:text-md lg:text-lg mt-4`}

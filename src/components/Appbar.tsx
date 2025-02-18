@@ -54,7 +54,7 @@ export default function Appbar() {
 
   return (
     <div
-      className={`sticky bg-primary w-full h-16 flex items-center justify-between px-4 lg:px-16 py-2 top-0 z-[100] transition-transform duration-300 delay-100 ease-in-out ${
+      className={`sticky bg-primary w-full h-16 flex items-center justify-between px-4 lg:px-16 py-2 top-0 z-[100] transition-transform duration-300 delay-100 ease-in-out border-b-[1px] border-background ${
         scrollingDown ? '-translate-y-full' : 'translate-y-0'
       }`}
     >
