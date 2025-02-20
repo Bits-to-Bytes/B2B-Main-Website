@@ -137,7 +137,6 @@ const ResourceCard = ({
 export default function ResourcePage() {
   const pathname = usePathname();
   const [resource, setResource] = useState<Resource | null>(null);
-  const [activeTab, setActiveTab] = useState('videos');
 
   useEffect(() => {
     const name = pathname.split('/').pop();
@@ -216,25 +215,26 @@ export default function ResourcePage() {
         </motion.div>
 
         <Tabs defaultValue="videos" className="w-full">
-          <TabsList className="flex justify-center space-x-2 mb-8 flex-wrap gap-2">
-            {['videos', 'blogs', 'courses', 'docs', 'notes'].map((type) => (
-              <TabsTrigger
-                key={type}
-                value={type}
-                onClick={() => setActiveTab(type)}
-                className={`px-4 py-2 rounded-full`}
-              >
-                <span
-                  className={`flex items-center gap-2 ${activeTab === type && 'text-white'}`}
-                >
-                  {type.charAt(0).toUpperCase() + type.slice(1)}
-                  <span className="bg-muted text-muted-foreground px-2 py-0.5 rounded-full text-xs">
-                    {getResourceCount(type as keyof Resource)}
-                  </span>
-                </span>
-              </TabsTrigger>
-            ))}
-          </TabsList>
+          <div className="relative w-full mb-8 lg:flex md:flex flex-col items-center">
+            <div className="overflow-x-auto pb-4 scrollbar-hide">
+              <TabsList className="w-fit flex space-x-2 px-4">
+                {['videos', 'blogs', 'courses', 'docs', 'notes'].map((type) => (
+                  <TabsTrigger
+                    key={type}
+                    value={type}
+                    className="px-6 py-2 min-w-[120px] data-[state=active]:text-white rounded-full"
+                  >
+                    <span className="flex items-center justify-center gap-2">
+                      {type.charAt(0).toUpperCase() + type.slice(1)}
+                      <span className="bg-muted text-muted-foreground px-2 py-0.5 rounded-full text-xs">
+                        {getResourceCount(type as keyof Resource)}
+                      </span>
+                    </span>
+                  </TabsTrigger>
+                ))}
+              </TabsList>
+            </div>
+          </div>
 
           <AnimatePresence mode="wait">
             {['videos', 'blogs', 'courses', 'docs', 'notes'].map((type) => {
@@ -243,7 +243,7 @@ export default function ResourcePage() {
               ] as ResourceMetadata[];
 
               return (
-                <TabsContent key={type} value={type}>
+                <TabsContent key={type} value={type} className="w-full">
                   <motion.div
                     variants={containerVariants}
                     initial="hidden"
@@ -251,24 +251,22 @@ export default function ResourcePage() {
                     className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
                   >
                     {items.length > 0 ? (
-                      items.map((item, index) => {
-                        return (
-                          <motion.div
-                            key={index}
-                            variants={itemVariants}
-                            className="w-full"
-                          >
-                            <ResourceCard
-                              url={item.url}
-                              type={type}
-                              title={item.title}
-                              description={item.description}
-                              difficulty={item.difficulty}
-                              image={item.image}
-                            />
-                          </motion.div>
-                        );
-                      })
+                      items.map((item, index) => (
+                        <motion.div
+                          key={index}
+                          variants={itemVariants}
+                          className="w-full"
+                        >
+                          <ResourceCard
+                            url={item.url}
+                            type={type}
+                            title={item.title}
+                            description={item.description}
+                            difficulty={item.difficulty}
+                            image={item.image}
+                          />
+                        </motion.div>
+                      ))
                     ) : (
                       <motion.div
                         variants={itemVariants}

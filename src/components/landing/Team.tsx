@@ -46,7 +46,7 @@ export default function Team() {
 
   return (
     <div
-      className="w-full min-h-screen bg-[#F2F2F2] flex flex-col items-center py-8 lg:py-16 lg:gap-8"
+      className="w-full lg:min-h-screen bg-[#F2F2F2] flex flex-col gap-4 items-center py-8 lg:py-16 lg:gap-8"
       ref={pageRef}
     >
       <div className="overflow-hidden p-1">
@@ -55,7 +55,7 @@ export default function Team() {
         </h1>
       </div>
 
-      <div className="flex flex-col items-center text-[1.5rem] lg:text-[2.5rem] w-[80%] lg:w-[60%] text-center font-poppins relative teamContent">
+      <div className="flex flex-col items-center text-[1.2rem] lg:text-[2.5rem] w-[80%] lg:w-[60%] text-center font-poppins relative teamContent">
         <p>
           We have an{' '}
           <span className="relative">
@@ -68,9 +68,8 @@ export default function Team() {
               className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 scale-[1.6]"
             />
           </span>{' '}
-          team of passionate people
+          team of passionate people who can help you excel in the tech industry.
         </p>
-        <p>who can help you excel in the tech industry.</p>
       </div>
 
       <div className="relative w-screen max-w-full overflow-hidden">
@@ -95,7 +94,7 @@ export default function Team() {
               return (
                 <motion.div
                   key={index}
-                  className="w-[200px] sm:w-[250px] md:w-[300px] lg:w-[350px] h-[300px] sm:h-[350px] md:h-[400px] lg:h-[450px] flex-shrink-0 transform transition-all duration-300 relative grayscale hover:grayscale-0 bg-gray-200"
+                  className="w-[250px] sm:w-[300px] md:w-[350px] lg:w-[350px] h-[300px] sm:h-[350px] md:h-[400px] lg:h-[450px] flex-shrink-0 transform transition-all duration-300 relative grayscale hover:grayscale-0 bg-gray-200"
                   whileHover={{ cursor: 'pointer' }}
                 >
                   <Image
@@ -117,7 +116,7 @@ export default function Team() {
               return (
                 <motion.div
                   key={index}
-                  className="w-[200px] sm:w-[250px] md:w-[300px] lg:w-[350px] h-[300px] sm:h-[350px] md:h-[400px] lg:h-[450px] flex-shrink-0 transform transition-all duration-300 relative grayscale hover:grayscale-0 bg-gray-200"
+                  className="w-[250px] sm:w-[300px] md:w-[350px] lg:w-[350px] h-[300px] sm:h-[350px] md:h-[400px] lg:h-[450px] flex-shrink-0 transform transition-all duration-300 relative grayscale hover:grayscale-0 bg-gray-200"
                   whileHover={{ cursor: 'pointer' }}
                 >
                   <Image

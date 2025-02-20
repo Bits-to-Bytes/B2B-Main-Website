@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 @font-face {
   font-family: 'CreamCake';
   src: url('/fonts/CreamCake.ttf') format('truetype');
@@ -20,15 +29,19 @@
 * {
   scroll-behavior: smooth;
 }
+
 *::-webkit-scrollbar {
   width: 0.5rem;
 }
+
 *::-webkit-scrollbar-track {
   background: #fff;
 }
+
 *::-webkit-scrollbar-thumb {
   background: #888;
 }
+
 *::-webkit-scrollbar-thumb:hover {
   background: #666;
 }
@@ -36,6 +49,7 @@
 .text-stroke-dark {
   -webkit-text-stroke: 2px #000515;
 }
+
 .text-stroke-light {
   -webkit-text-stroke: 2px #f2f2f2;
 }
@@ -128,22 +142,27 @@
     width 250ms ease,
     left 250ms ease;
 }
+
 .navLink div::before {
   width: 0;
   transform-origin: right;
 }
+
 .navLink div:hover::after {
   width: 50%;
   left: 0;
 }
+
 .navLink div:hover:before {
   width: 50%;
   left: 50%;
 }
+
 @layer base {
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
   }

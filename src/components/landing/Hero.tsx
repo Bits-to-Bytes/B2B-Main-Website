@@ -67,7 +67,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <div className="h-screen flex w-full flex-col items-center justify-center text-primary font-calSans bg-[#111]">
+    <div className="h-screen flex w-full flex-col items-center justify-center text-primary font-calSans bg-[#000515]">
       <div className="overflow-hidden">
         <h1
           ref={mainHeadingRef}

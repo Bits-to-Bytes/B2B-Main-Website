@@ -1,7 +1,8 @@
 'use client';
 
-import { teamMembers } from '@/data/team';
+import { mentors, teamMembers } from '@/data/team';
 import { motion } from 'framer-motion';
+import { Globe2Icon } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
@@ -174,6 +175,148 @@ export default function TeamPage() {
                           </svg>
                         </Link>
                       )}
+                      {member.portfolio && (
+                        <Link
+                          href={`${member.portfolio}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-gray-400 hover:text-gray-800 transition-colors"
+                        >
+                          <Globe2Icon className="w-5 h-5" />
+                        </Link>
+                      )}
+                    </div>
+                  </motion.div>
+                </div>
+              </div>
+            </motion.div>
+          );
+        })}
+      </motion.div>
+
+      <MentorsSection />
+    </div>
+  );
+}
+
+function MentorsSection() {
+  const [hoveredId, setHoveredId] = useState<number | null>(null);
+
+  return (
+    <div className="w-full bg-gradient-to-b from-gray-100 to-gray-50 py-16 px-4">
+      {/* Mentors Header */}
+      <motion.div
+        className="max-w-4xl mx-auto text-center mb-16"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+      >
+        <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-800">
+          Our <span className="font-calSans text-background">Mentors</span>
+        </h2>
+        <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
+          Experienced professionals guiding our next generation of developers.
+        </p>
+      </motion.div>
+
+      {/* Mentors Grid */}
+      <motion.div
+        className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 px-4"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        {mentors.map((mentor, index) => {
+          if (mentor.image === null) return null;
+
+          return (
+            <motion.div
+              key={index}
+              variants={itemVariants}
+              whileHover={{ scale: 1.02 }}
+              className="relative group"
+              onHoverStart={() => setHoveredId(index)}
+              onHoverEnd={() => setHoveredId(null)}
+            >
+              <div className="relative overflow-hidden rounded-2xl border-background border-[1.5px] h-[28rem]">
+                <motion.div
+                  className="absolute inset-0 z-0"
+                  initial={{ opacity: 0 }}
+                  animate={{
+                    opacity: hoveredId === index ? 0.8 : 0,
+                    background:
+                      hoveredId === index
+                        ? [
+                            'linear-gradient(45deg, #818cf8 0%, #ec4899 50%, #f59e0b 100%)',
+                          ]
+                        : 'none',
+                  }}
+                  transition={{
+                    background: {
+                      duration: 8,
+                      ease: 'linear',
+                    },
+                    opacity: {
+                      duration: 0.5,
+                    },
+                  }}
+                />
+
+                <div className="relative h-full flex flex-col">
+                  <div className="relative w-full h-72">
+                    <Image
+                      src={mentor.image}
+                      alt={mentor.name}
+                      className="object-cover"
+                    />
+                  </div>
+
+                  <motion.div
+                    className="p-6 mt-auto bg-white backdrop-blur-sm select-none"
+                    initial={{ y: 20, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 0.1 }}
+                  >
+                    <h2 className="text-xl font-bold text-gray-800 mb-1">
+                      {mentor.name}
+                    </h2>
+                    <p className="text-gray-600">{mentor.role}</p>
+
+                    <div className="mt-4 flex gap-4">
+                      {mentor.linkedin && (
+                        <Link
+                          href={mentor.linkedin}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-gray-400 hover:text-blue-600 transition-colors"
+                        >
+                          <svg
+                            className="w-5 h-5"
+                            fill="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                          </svg>
+                        </Link>
+                      )}
+                      <Link
+                        href={`mailto:${mentor.email}`}
+                        className="text-gray-400 hover:text-blue-600 transition-colors"
+                      >
+                        <svg
+                          className="w-5 h-5"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                          />
+                        </svg>
+                      </Link>
                     </div>
                   </motion.div>
                 </div>

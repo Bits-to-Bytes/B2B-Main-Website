@@ -63,7 +63,7 @@ export default function Events() {
 
   return (
     <div
-      className="w-full bg-[#F2F2F2] flex flex-col items-center py-8 lg:py-12 lg:gap-8"
+      className="w-full bg-[#F2F2F2] flex flex-col items-center py-8 lg:py-12 lg:gap-8 overflow-x-hidden"
       ref={eventsRef}
     >
       <div className="overflow-hidden p-1">
@@ -133,9 +133,8 @@ const TimelineItem = ({ item, index }: TimelineItemProps) => {
   }, [isEven]);
 
   return (
-    <div className="relative mb-8 md:mb-16">
+    <div className="relative mb-8 md:mb-16 w-full">
       <div className="absolute left-1/2 top-4 -translate-x-1/2 w-4 h-4 bg-background rounded-full z-10" />
-
       <div
         className={`flex flex-col md:flex-row items-center md:items-start justify-center md:gap-12`}
       >
@@ -151,7 +150,6 @@ const TimelineItem = ({ item, index }: TimelineItemProps) => {
             <div className="absolute -top-3 left-4 bg-background text-white px-4 py-1 rounded-full text-sm">
               {item.date}
             </div>
-
             <div className="mt-4">
               <Image
                 src={item.image}

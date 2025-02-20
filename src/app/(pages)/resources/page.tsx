@@ -40,16 +40,21 @@ const ResourceCard = ({
 }: Resource) => (
   <Link href={href}>
     <motion.div
-      className="relative group overflow-hidden rounded-2xl"
+      className="relative group overflow-hidden rounded-2xl border-2 border-background"
       whileHover={{ scale: 1.02 }}
       variants={cardVariants}
     >
       <div
-        className={`p-8 h-64 ${gradient} transition-all duration-300 group-hover:shadow-lg`}
-      >
-        <Icon className="w-12 h-12 text-white mb-4" />
-        <h3 className="text-2xl font-bold text-white mb-2">{title}</h3>
-        <p className="text-white/80">{description}</p>
+        className={`absolute inset-0 ${gradient} opacity-100 lg:opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
+      />
+      <div className="relative p-8 h-64 transition-all duration-300">
+        <Icon className="w-12 h-12 mb-4 text-white lg:text-background group-hover:text-white transition-all" />
+        <h3 className="text-2xl font-bold mb-2 text-white lg:text-background group-hover:text-white transition-all">
+          {title}
+        </h3>
+        <p className="text-muted lg:text-muted-foreground group-hover:text-muted transition-all">
+          {description}
+        </p>
       </div>
     </motion.div>
   </Link>
@@ -110,13 +115,13 @@ export default function ResourcePage() {
   return (
     <div className="min-h-screen bg-gray-50 py-16 px-4">
       <motion.div
-        className="max-w-7xl mx-auto"
+        className="max-w-7xl mx-auto flex flex-col"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
         <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-gray-800">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-background">
             Learning Resources
           </h1>
           <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">

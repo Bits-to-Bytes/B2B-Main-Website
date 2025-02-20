@@ -15,6 +15,8 @@ import karan from '../../public/members/karan.png';
 import hinal from '../../public/members/hinal.png';
 import dhruvi from '../../public/members/dhruvi.png';
 
+import chinmay from '../../public/mentors/ca_vyas.png';
+
 interface TeamMember {
   name: string;
   role: string;
@@ -262,24 +264,34 @@ export const teamMembers: TeamMember[] = [
   ...associateMembers,
 ];
 
-export const mentors = [
+interface Mentor {
+  name: string;
+  role: string;
+  email: string;
+  linkedin?: string;
+  image: StaticImageData | null;
+}
+
+export const mentors: Mentor[] = [
   {
     name: 'Prof. Chinmay Vyas',
     role: 'Faculty Coordinator',
-    contact: '9426146392',
     email: 'chinmayvyas.27@gmail.com',
+    linkedin: 'https://www.linkedin.com/in/chinmay-vyas-0b8b7a1b0/',
+    image: chinmay,
   },
   {
     name: 'Prof. Karshan Kandoriya',
     role: 'Faculty Advisor',
-    contact: '9033711408',
     email: 'karshankandoriya@gmail.com',
+    linkedin: 'https://www.linkedin.com/in/karshankandoriya/',
+    image: null,
   },
   {
     name: 'Shailee Shah',
     role: 'Alumni Advisor',
-    contact: '9328256707',
     email: 'sshaileeshah@gmail.com',
     linkedin: 'https://www.linkedin.com/in/shailee-shah-58a349210/',
+    image: null,
   },
 ];

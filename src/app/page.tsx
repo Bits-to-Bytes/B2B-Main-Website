@@ -6,7 +6,7 @@ import Testimonials from '@/components/landing/Testimonials';
 
 export default function Home() {
   return (
-    <div className="min-h-screen select-none">
+    <div className="min-h-screen w-full select-none">
       <Hero />
       <About />
       <Events />

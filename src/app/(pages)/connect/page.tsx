@@ -111,7 +111,7 @@ export default function ConnectPage() {
   ];
 
   return (
-    <div className="h-[calc(100vh-4rem)] bg-[#F2F2F2] flex items-center">
+    <div className="min--h-screen bg-[#F2F2F2] px-4 py-16">
       <motion.div
         className="max-w-7xl mx-auto"
         initial={{ opacity: 0, y: -20 }}
